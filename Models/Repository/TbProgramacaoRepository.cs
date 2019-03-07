@@ -39,8 +39,8 @@ namespace ProducaoAPI.Models.Repository
                      }
                      if (oProgramacao.alocacao == null) 
                          oProgramacao.alocacao = new List<TbProgramacaoAlocacao>();
-
-                     oProgramacao.alocacao.Add(a);
+                    if(a!=null)
+                        oProgramacao.alocacao.Add(a);
 
                      return oProgramacao;
 
