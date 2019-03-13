@@ -36,10 +36,12 @@ namespace ProducaoAPI
             // Service
             services.AddTransient<IProgramacaoService,ProgramacaoService>();
             services.AddTransient<IIntegracaoAPIService,IntegracaoAPIService>();
+            services.AddTransient<IApontamentoSapService,ApontamentoSapService>();
 
             //Repository
             services.AddTransient<TbProgramacaoRepository,TbProgramacaoRepository>();
             services.AddTransient<TbProgramacaoAlocacaoRepository,TbProgramacaoAlocacaoRepository>();
+            services.AddTransient<TbApontamentoSapRepository,TbApontamentoSapRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

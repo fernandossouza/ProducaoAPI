@@ -54,15 +54,18 @@ namespace ProducaoAPI.Service
             var programacoesSemana = await GetProgramacao();
             List<TbProgramacaoAlocacao> pessoasAlocadas = new List<TbProgramacaoAlocacao>();
 
-            foreach(var programacao in programacoesSemana)
+            if(programacoesSemana != null)
             {
-                if(programacao.alocacao.Count()>0)
-                pessoasAlocadas.AddRange(programacao.alocacao);
+                foreach(var programacao in programacoesSemana)
+                {
+                    if(programacao.alocacao.Count()>0)
+                    pessoasAlocadas.AddRange(programacao.alocacao);
+                }
             }
 
             foreach(var pessoaAlocada in pessoasAlocadas)
             {
-                var pessoa = pessoaList.FirstOrDefault(p=>p.id == pessoaAlocada.id);
+                var pessoa = pessoaList.FirstOrDefault(p=>p.id == pessoaAlocada.pessoaId);
                 if(pessoa != null)
                     pessoa.alocacao = pessoaAlocada;
             }
